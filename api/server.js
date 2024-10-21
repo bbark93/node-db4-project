@@ -7,4 +7,8 @@ server.use(express.json());
 
 server.use("/api/recipes", recipesRouter);
 
-module.exports = server
+server.use("*", (req, res) => {
+  res.json({ api: "up" });
+});
+
+module.exports = server;
